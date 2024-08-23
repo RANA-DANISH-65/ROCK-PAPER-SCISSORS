@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container.start .user {
+  transform-origin: left;
+  animation: userShake 0.7s ease infinite;
+}
+
+@keyframes userShake {
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+.container.start .cpu {
+  transform-origin: right;
+  animation: cpuShake 0.7s ease infinite;
+}
+
+@keyframes cpuShake {
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes heas {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes bot {
+  0% {
+    bottom: -400px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #000000, #121212); /* Even darker background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+body h1 {
+  color: #ff6f00; /* Orange color for the heading */
+  margin-bottom: 30px;
+  position: relative;
+  animation: heas 2s ease-in-out;
+}
+
+.container {
+  width: 50vw;
+  height: auto;
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.1); /* Light container background */
+  border-radius: 25px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4); /* Darker shadow */
+  padding: 25px;
+  overflow: hidden;
+}
+
+.field-images {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user img {
+  width: 120px;
+  border-radius: 12px;
+  transform: rotate(90deg);
+}
+
+.cpu img {
+  width: 120px;
+  border-radius: 12px;
+  transform: rotate(-90deg);
+}
+
+.pointer {
+  pointer-events: none;
+}
+
+.head {
+  color: #ff6f00; /* Orange color for the header */
+  text-align: center;
+  margin: 20px 0;
+  font-size: 250%;
+  font-weight: 700;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.icons {
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.5;
+  position: relative;
+  animation: bot 2s ease-in-out;
+
+}
+
+.img:hover {
+  opacity: 1;
+}
+
+.img.active {
+  opacity: 1;
+}
+
+.img p {
+  color: #ff6f00; /* Orange color for image text */
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.img img {
+ width: 80px ;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+  body h1 {
+    font-size: 20px;
+  }
+  .container .head {
+    font-size: 23px;
+  }
+  .img img {
+    width: 50px;
+  }
+  .user img {
+    width: 70px;
+  }
+  .cpu img {
+    width: 70px;
+  }
+}
